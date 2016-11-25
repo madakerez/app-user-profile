@@ -1,0 +1,38 @@
+<div id="modal-wrap">
+    <div class="modal">
+        <div class="modal-title">
+            <div class="modal-title-wrap">
+                <h3>Dodaj Kartę</h3>
+                <svg class="exit-modal" fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+                    <path id="x" class="cls-1"
+                          d="M3187,1584h-1v-0.34l-0.34.33-3.66-3.66-3.66,3.66-0.34-.33V1584h-1v-1h0.34l-0.34-.34,3.67-3.66-3.67-3.66,0.34-.34H3177v-1h1v0.34l0.34-.34,3.66,3.67,3.66-3.67,0.34,0.34V1574h1v1h-0.34l0.34,0.34-3.67,3.66,3.67,3.66-0.34.34H3187v1Z"
+                          transform="translate(-3177 -1574)"/>
+                </svg>
+            </div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-content-wrap">
+                <div class="modal-content-text">
+                    <h4>{{title}}</h4>
+                </div>
+
+                <div class="modal-content-labels">
+                    <div class="modal-label-row">
+                        <label>{{label_1_text}}</label>
+                        <p id="field_1" data-name="{{label_1_name}}" sendable>{{label_1_content}}</p>
+                    </div>
+                </div>
+
+                <div class="modal-content-cta">
+                    <a class="button button__gray button__small exit-modal" href="">
+                        {{reject}}
+                    </a>
+
+                    <a class="button button__black button__small save-modal" href="">
+                        {{accept}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

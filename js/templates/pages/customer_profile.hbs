@@ -1,0 +1,397 @@
+<!--DANE UŻYTKOWNIKA-->
+<div id="user-details" class="card card__offset">
+    <div class="card-title">
+        <div class="card-text-wrap">
+            <h3>Dane użytkownika</h3>
+            <a id="edit-user-data" class="button button__standard button__small edit-btn" href="">
+                EDYTUJ
+            </a>
+            <a class="button button__standard button__small save-btn" href="">
+                ZAPISZ
+            </a>
+        </div>
+        <div class="card-arrow">
+            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="14" height="8"
+                 viewBox="0 0 14 8">
+                <path id="arrow" class="cls-1"
+                      d="M1749,592h-1v-0.341l-0.34.336-5.66-5.664L1736.34,592l-0.34-.336V592h-1v-1h0.34l-0.34-.337,6.66-6.658,0.34,0.336,0.34-.336,6.65,6.658-0.33.337H1749v1Z"
+                      transform="translate(-1735 -584)"/>
+            </svg>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-content">
+            <div class="label-row">
+                <div class="label-wrap edit-mark">
+                    <label>IMIĘ</label>
+                    <h3 editable sendable data-name="first_name">{{user.first_name}}</h3>
+                </div>
+                <div class="label-wrap">
+                    <label>ID Użytkownika</label>
+                    <h3 sendable data-name="id">{{user.id}}</h3>
+                </div>
+            </div>
+
+            <div class="label-row">
+                <div class="label-wrap edit-mark">
+                    <label>Nazwisko</label>
+                    <h3 editable sendable data-name="last_name">{{user.last_name}}</h3>
+                </div>
+                <div class="label-wrap">
+                    <label>SKLEP PIERWSZEJ TRANSAKCJI</label>
+                    <h3>{{user.first_transaction_store}}</h3>
+                </div>
+            </div>
+
+            <div class="label-row">
+                <div class="label-wrap edit-mark">
+                    <label>Data urodzenia</label>
+                    <h3 editable sendable data-name="birthday">{{user.birthday}}</h3>
+                </div>
+                <div class="label-wrap">
+                    <label>Data pierwszej transakcji</label>
+                    <h3>{{user.first_transaction_timestamp}}</h3>
+                </div>
+            </div>
+
+            <div class="label-row">
+                <div class="label-wrap edit-mark">
+                    <label>EMAIL</label>
+                    <h3 editable sendable data-name="email">{{user.email}}</h3>
+                </div>
+                <div class="label-wrap">
+                    <label>Aktywny</label>
+                    <h3>{{numberToString user.is_active}}</h3>
+                </div>
+            </div>
+
+            <div class="label-row">
+                <div class="label-wrap edit-mark">
+                    <label>TELEFON</label>
+                    <h3 editable sendable data-name="phone">{{user.phone}}</h3>
+                </div>
+                <div class="label-wrap">
+                    <label>TYP KLIENTA</label>
+                    <h3>{{user.type_name}}</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--KARTY KLIENTA-->
+<div class="card">
+    <div class="card-title">
+        <div class="card-text-wrap">
+            <h3>karty klienta</h3>
+            <a id="add_card" class="button button__standard button__small" href="">
+                DODAJ KARTĘ
+            </a>
+        </div>
+        <div class="card-arrow">
+            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="14" height="8"
+                 viewBox="0 0 14 8">
+                <path id="arrow" class="cls-1"
+                      d="M1749,592h-1v-0.341l-0.34.336-5.66-5.664L1736.34,592l-0.34-.336V592h-1v-1h0.34l-0.34-.337,6.66-6.658,0.34,0.336,0.34-.336,6.65,6.658-0.33.337H1749v1Z"
+                      transform="translate(-1735 -584)"/>
+            </svg>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-content card-content-short">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Numer Karty</th>
+                    <th colspan="2">Status</th>
+                </tr>
+                {{#cards}}
+                <tr class="card-table-row">
+                    <td>{{card_id}}</td>
+                    <td class="ean-field">{{ean}}</td>
+                    <td>
+                        <svg version="1.1" id="Warstwa_1" width="28" height="20"
+                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                             x="0px" y="0px"
+                             viewBox="0 0 28 20">
+                            <g>
+                                <rect x="4" y="12" width="10" height="1"/>
+                                <path d="M0,0v1v3v1v3v1v10v1h1h26h1v-1V9V8V5V4V1V0H0z M27,19H1V9h26V19z M27,8H1V5h26V8z M27,4H1V1h26V4z"/>
+                                <rect x="4" y="15" width="10" height="1"/>
+                            </g>
+                        </svg>
+                        {{isActive}}
+                    </td>
+                    <td class="align-right">
+                        <a class="remove-card button button__standard button__small" href="">
+                            usuń
+                        </a>
+                    </td>
+                </tr>
+                {{/cards}}
+            </table>
+        </div>
+    </div>
+
+
+</div>
+<!--TRANSAKCJE-->
+<div class="card">
+    <div class="card-title no-border-bottom">
+        <div class="card-text-wrap">
+            <h3>transakcje</h3>
+            <a id="add_points" class="button button__standard button__small" href="">
+                DODAJ Punkty
+            </a>
+            <a id="subtract_points" class="button button__standard button__small" href="">
+                ODEJMIJ Punkty
+            </a>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-content card-content-fullwidth">
+            <div class="table-container">
+                <div class="table-row-wrap">
+                    <div class="table-row table-row__header">
+                        <div class="table-cell table-cell__long">
+                            <h4>Czas transakcji</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="5.031" height="8" viewBox="0 0 5.031 8">
+                                <path id="_" data-name="&lt;&gt;" class="cls-1"
+                                      d="M965,1689l2.5-2.99L970,1689m-0.05,1.92-2.4,3.07-2.591-2.91"
+                                      transform="translate(-964.969 -1686)"/>
+                            </svg>
+                        </div>
+                        <div class="table-cell table-cell__long">
+                            <h4>Nr Paragonu</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="5.031" height="8" viewBox="0 0 5.031 8">
+                                <path id="_" data-name="&lt;&gt;" class="cls-1"
+                                      d="M965,1689l2.5-2.99L970,1689m-0.05,1.92-2.4,3.07-2.591-2.91"
+                                      transform="translate(-964.969 -1686)"/>
+                            </svg>
+                        </div>
+                        <div class="table-cell table-cell__short">
+                            <h4>PKT</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="5.031" height="8" viewBox="0 0 5.031 8">
+                                <path id="_" data-name="&lt;&gt;" class="cls-1"
+                                      d="M965,1689l2.5-2.99L970,1689m-0.05,1.92-2.4,3.07-2.591-2.91"
+                                      transform="translate(-964.969 -1686)"/>
+                            </svg>
+                        </div>
+                        <div class="table-cell table-cell__short">
+                            <h4>Cena</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="5.031" height="8" viewBox="0 0 5.031 8">
+                                <path id="_" data-name="&lt;&gt;" class="cls-1"
+                                      d="M965,1689l2.5-2.99L970,1689m-0.05,1.92-2.4,3.07-2.591-2.91"
+                                      transform="translate(-964.969 -1686)"/>
+                            </svg>
+                        </div>
+                        <div class="table-cell table-cell__long">
+                            <h4>Czas rejestracji</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="5.031" height="8" viewBox="0 0 5.031 8">
+                                <path id="_" data-name="&lt;&gt;" class="cls-1"
+                                      d="M965,1689l2.5-2.99L970,1689m-0.05,1.92-2.4,3.07-2.591-2.91"
+                                      transform="translate(-964.969 -1686)"/>
+                            </svg>
+                        </div>
+                        <div class="table-cell table-cell__normal">
+                            <h4>Typ</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="5.031" height="8" viewBox="0 0 5.031 8">
+                                <path id="_" data-name="&lt;&gt;" class="cls-1"
+                                      d="M965,1689l2.5-2.99L970,1689m-0.05,1.92-2.4,3.07-2.591-2.91"
+                                      transform="translate(-964.969 -1686)"/>
+                            </svg>
+                        </div>
+                        <div class="table-cell table-cell__long">
+                            <h4>Sklep</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="5.031" height="8" viewBox="0 0 5.031 8">
+                                <path id="_" data-name="&lt;&gt;" class="cls-1"
+                                      d="M965,1689l2.5-2.99L970,1689m-0.05,1.92-2.4,3.07-2.591-2.91"
+                                      transform="translate(-964.969 -1686)"/>
+                            </svg>
+                        </div>
+                        <div class="table-cell table-cell__long">
+
+                        </div>
+                    </div>
+                </div>
+                {{#transactions}}
+                    <div class="table-row-wrap" data-transaction-id="234">
+                        <div class="table-row">
+                            <div class="table-cell table-cell__long">
+                                <p>{{datetime}}</p>
+                            </div>
+                            <div class="table-cell table-cell__long">
+                                <p>{{doc_number}}</p>
+                            </div>
+                            <div class="table-cell table-cell__short">
+                                <p>{{points}}</p>
+                            </div>
+                            <div class="table-cell table-cell__short">
+                                <p>{{price}}</p>
+                            </div>
+                            <div class="table-cell table-cell__long">
+                                <p>{{register_timestamp}}</p>
+                            </div>
+                            <div class="table-cell table-cell__normal">
+                                <p class="cursor cursor__help" title="{{transactions_types}}">{{transactions_types}}</p>
+                            </div>
+                            <div class="table-cell table-cell__long">
+                                <p>{{store}}</p>
+                            </div>
+                            <div class="table-cell table-cell__long">
+                                <a class="button button__standard button__small details-btn" href="">
+                                    SZCZEGÓŁY
+                                </a>
+                                <a class="button button__light_green button__small roll-up" href="">
+                                    ZWIŃ
+                                </a>
+                            </div>
+                        </div>
+                        <div class="table-details">
+
+                        </div>
+                    </div>
+                {{/transactions}}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!--HISTORIA FORMULARZY-->
+<div class="card">
+    <div class="card-title no-border-bottom">
+        <div class="card-text-wrap">
+            <h3>HISTORIA FORMULARZY</h3>
+        </div>
+        <div class="card-arrow">
+            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="14" height="8"
+                 viewBox="0 0 14 8">
+                <path id="arrow" class="cls-1"
+                      d="M1749,592h-1v-0.341l-0.34.336-5.66-5.664L1736.34,592l-0.34-.336V592h-1v-1h0.34l-0.34-.337,6.66-6.658,0.34,0.336,0.34-.336,6.65,6.658-0.33.337H1749v1Z"
+                      transform="translate(-1735 -584)"/>
+            </svg>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-content card-content-fullwidth">
+            <div class="table-container">
+                <div class="table-row-wrap">
+                    <div class="table-row table-row__header">
+                        <div class="table-cell table-cell__short">
+                            <h4>ID</h4>
+                        </div>
+                        <div class="table-cell table-cell__long">
+                            <h4>NAZWA SKLEPU</h4>
+                        </div>
+                        <div class="table-cell table-cell__long">
+                            <h4>EAN</h4>
+                        </div>
+                        <div class="table-cell table-cell__x_long">
+                            <h4>STATUS</h4>
+                        </div>
+                        <div class="table-cell table-cell__long">
+                            <h4>DATA AKTUALIZACJI</h4>
+
+                        </div>
+                        <div class="table-cell table-cell__long">
+                            <h4>DATA ZGŁOSZENIA</h4>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                {{#forms}}
+                    <div class="table-row-wrap">
+                        <div class="table-row">
+                            <div class="table-cell table-cell__short">
+                                <p>{{id}}</p>
+                            </div>
+                            <div class="table-cell table-cell__long">
+                                <p>{{store_name}}</p>
+                            </div>
+                            <div class="table-cell table-cell__long">
+                                <p>{{ean}}</p>
+                            </div>
+                            <div class="table-cell table-cell__x_long">
+                                <p title="{{status_name}}" class="cursor__help">{{status_name}}</p>
+                            </div>
+                            <div class="table-cell table-cell__long">
+                                <p>{{last_update_date}}</p>
+                            </div>
+                            <div class="table-cell table-cell__long">
+                                <p>{{issue_date}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {{/forms}}
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--DANE KONTAKTOWE-->
+<div class="card">
+    <div class="card-title no-border-bottom">
+        <div class="card-text-wrap">
+            <h3>DANE KONTAKTOWE</h3>
+        </div>
+        <div class="card-arrow">
+            <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" width="14" height="8"
+                 viewBox="0 0 14 8">
+                <path id="arrow" class="cls-1"
+                      d="M1749,592h-1v-0.341l-0.34.336-5.66-5.664L1736.34,592l-0.34-.336V592h-1v-1h0.34l-0.34-.337,6.66-6.658,0.34,0.336,0.34-.336,6.65,6.658-0.33.337H1749v1Z"
+                      transform="translate(-1735 -584)"/>
+            </svg>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card-content card-content-fullwidth">
+            <div class="table-container">
+                <div class="table-row-wrap">
+                    <div class="table-row table-row__header justify-flex-start">
+                        <div class="table-cell table-cell__x_long">
+                            <h4>TYP</h4>
+                        </div>
+                        <div class="table-cell table-cell__x_long">
+                            <h4>DANE KLIENTA</h4>
+                        </div>
+                        <div class="table-cell table-cell__x_long">
+                            <h4>WERYFIKACJA</h4>
+                        </div>
+                        <div class="table-cell table-cell__x_long">
+                            <h4>AKTYWNY</h4>
+                        </div>
+                        <div class="table-cell table-cell__x_long">
+                            <h4>REAKTYWACJA</h4>
+                        </div>
+                    </div>
+                </div>
+                {{#contacts}}
+                    <div class="table-row-wrap">
+                        <div class="table-row justify-flex-start">
+                            <div class="table-cell table-cell__x_long">
+                                <p>{{type}}</p>
+                            </div>
+                            <div class="table-cell table-cell__x_long">
+                                <p>{{value}}</p>
+                            </div>
+                            <div class="table-cell table-cell__x_long">
+                                <p>{{numberToString is_verified}}</p>
+                            </div>
+                            <div class="table-cell table-cell__x_long">
+                                <p>{{numberToString is_active}}</p>
+                            </div>
+                            <div class="table-cell table-cell__x_long">
+                                <a data-contact-id="{{id}}" class="button button__standard button__small resend-btn" href="">
+                                    WYŚLIJ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {{/contacts}}
+            </div>
+        </div>
+    </div>
+</div>

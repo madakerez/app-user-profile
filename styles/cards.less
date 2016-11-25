@@ -1,0 +1,355 @@
+@import "colors";
+
+.card {
+  width: 100%;
+  background: @white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  &__offset {
+    margin-top: 4rem;
+  }
+
+  &-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 25px 40px 25px 40px;
+    border-bottom: 1px #e6e6e6 solid;
+    min-height: 8.6rem;
+  }
+
+  &-text-wrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    a {
+      margin-right: 1rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-right: 2.5rem;
+    }
+
+  }
+
+  &-content {
+    display: flex;
+  }
+
+  &-arrow {
+    cursor: pointer;
+    transition: all 0.1s ease;
+
+    svg {
+      color: #8dc63f
+    }
+
+  }
+
+  .flip {
+    transform: rotate(180deg);
+  }
+
+  &-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  &-content {
+    width: 100%;
+    max-width: 92rem;
+    margin-top: 7.5rem;
+    margin-bottom: 4.5rem;
+
+    display: flex;
+    flex-direction:column;
+
+    &-short {
+      margin-top: 7rem;
+      margin-bottom: 8rem;
+    }
+
+    &-fullwidth {
+      max-width: inherit;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    //TABLE TYPE
+
+    table {
+
+      width: 100%;
+      max-width: 92rem;
+
+      tr {
+        border-bottom: 1px #e5e5e5 solid;
+      }
+
+      th, td {
+        text-align: left;
+        height: 5.5rem;
+        vertical-align: middle;
+
+        svg {
+          margin-bottom: -0.5rem;
+          margin-right: 1rem;
+        }
+      }
+
+      th {
+        font-size: 1.2rem;
+        color: #b5b5b5;
+        text-transform: uppercase;
+        font-weight: 400;
+      }
+
+      td {
+        font-size: 1.4rem;
+        color: #171616;
+      }
+
+      .align-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+    }
+
+    //LABEL TYPE
+
+    .label-row {
+
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 3rem;
+
+      .label-wrap {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        border-bottom: 1px #e5e5e5 solid;
+
+        label {
+          color: #b5b5b5;
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          padding-bottom: 1.2rem;
+        }
+
+        h3 {
+          font-size: 1.6rem;
+          color: #171616;
+          padding-bottom: 1.2rem;
+          outline: 0;
+        }
+
+      }
+
+      .edit-mark {
+        &__active {
+          border-bottom: 1px #8dc63f solid;
+        }
+      }
+
+    }
+
+    // DIV TABLE TYPE
+
+    .table-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .button__light_green {
+        display: none;
+      }
+  .table-row-wrap {
+
+    transition: all 1s ease;
+
+    &__active {
+
+
+      .table-row {
+        background: @dark_green;
+        border-bottom: 1px @light_green solid !important;
+        p {
+          color: @white !important;
+        }
+
+        .button__light_green {
+          display: flex;
+        }
+
+        .button__standard {
+          display: none;
+        }
+      }
+
+      .table-details {
+        //height: auto !important;
+      }
+    }
+
+    .table-row {
+      display: flex;
+      flex-wrap: nowrap;
+      height: 5rem;
+      justify-content: space-around;
+      border-bottom: 1px #e6e6e6 solid;
+
+      &__header {
+        border-top: 1px #e6e6e6 solid;
+
+        h4 {
+          font-size: 1.2rem;
+          text-transform: uppercase;
+          color: #b5b5b5;
+        }
+
+        svg {
+          color: #000000;
+          margin-left: 1rem;
+        }
+      }
+
+      p {
+        font-size: 1.4rem;
+        color: #171616;
+        text-overflow: ellipsis;
+        line-height: 1.8rem;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+
+      .table-cell {
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-overflow: ellipsis;
+
+        &__short {
+          width: 5rem;
+        }
+
+        &__long {
+          width: 15rem;
+        }
+
+        &__x_long {
+          width: 20rem;
+        }
+
+        &__normal {
+          width: 10rem;
+        }
+      }
+    }
+
+    .table-details {
+      width: 100%;
+      background: @light_green;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+
+      .details-wrap {
+        width: 100%;
+        max-width: 92rem;
+        color: @white;
+        margin-top: 6rem;
+        margin-bottom: 1rem;
+
+        .details-header {
+
+          display: flex;
+          justify-content: flex-start;
+          border-bottom: @dark_green 1px solid;
+          flex-direction: column;
+
+          h3 {
+            font-weight: 900;
+            font-size: 1.4rem;
+            padding-bottom: 1.7rem;
+            letter-spacing: 1px;
+          }
+        }
+
+        .details-content {
+
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 4.5rem;
+
+          .details-row {
+            display: flex;
+            flex-direction: row;
+
+            span {
+              font-size: 1.4rem;
+              width: 11.5rem;
+              margin-top: 2rem;
+            }
+
+          }
+
+          .details-table-row {
+            display: flex;
+            justify-content: space-between;
+            height: 5rem;
+            border-bottom: @dark_green 1px solid;
+
+            .details-table-cell {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+
+              p {
+                font-size: 1.2rem;
+                line-height: 1.6rem;
+              }
+
+              &__long {
+                width: 12rem;
+              }
+
+              &__ultra_long {
+                width: 30rem;
+              }
+
+              &__short {
+                width: 5rem;
+              }
+            }
+
+          }
+
+        }
+
+      }
+    }
+
+  }
+
+    }
+
+  }
+}

@@ -1,0 +1,47 @@
+@import "colors";
+@import "typography";
+
+@menu-height: 6.8rem;
+
+.nav-wrap {
+  width: 100%;
+  height: @menu-height;
+  background: @black;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+
+  .logo-wrap {
+
+  }
+
+  nav {
+    height: @menu-height;
+    display: flex;
+    flex-direction: row;
+    a {
+      height: @menu-height;
+      width: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: @white;
+      border-left: @nav_gray 1px solid;
+      .lato-black;
+
+      svg {
+        margin-bottom: -2px;
+        margin-left: 15px;
+      }
+
+    }
+
+    .active {
+      border-bottom: 4px @light_green solid;
+    }
+
+
+  }
+
+}

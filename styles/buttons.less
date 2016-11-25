@@ -1,0 +1,62 @@
+@import "colors";
+
+.button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+  &__big {
+    width: 21.1rem;
+    height: 4.5rem;
+  }
+
+  &__small {
+    width: 12rem;
+    height: 3.6rem;
+  }
+
+  &__standard{
+    background: @white;
+    border: 1px #e5e5e5 solid;
+    color: #b5b5b5;
+
+    &:hover {
+      border: 1px #c1c1c1 solid;
+      color: #3a3a3a;
+    }
+
+  }
+
+  &__light_green {
+    background: @light_green;
+    color: @white;
+
+    &:hover {
+      background: #90C65D;
+    }
+
+  }
+
+  &__datk_green {
+    background: @dark_green;
+    color: @white;
+  }
+
+  &__black {
+    background: @black;
+    color: @white;
+  }
+
+  &__gray {
+    background: @btn_gray;
+    color: @black;
+  }
+}
+
+.save-btn {
+  display: none;
+}

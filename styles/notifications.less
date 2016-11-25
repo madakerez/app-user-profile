@@ -1,0 +1,23 @@
+@import "colors";
+
+.alertify-notifier {
+
+  .ajs-message{
+
+    &.ajs-visible{
+      padding: 1rem 1.5rem !important;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      font-weight: 400;
+    }
+    &.ajs-error{
+      background-color: @error_red !important;
+      color: #fff !important;
+    }
+
+    &.ajs-success{
+      background-color: @success_green !important;
+      color: #fff !important;
+    }
+  }
+}

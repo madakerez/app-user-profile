@@ -1,0 +1,32 @@
+@import (reference) "colors";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  background: @bg_gray;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  min-width: 1280px;
+}
+
+
+.page-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .page-content {
+    width: 100%;
+    max-width: 128rem;
+    min-height: 100vh;
+    margin: auto;
+    margin-bottom: 3rem;
+  }
+
+}
